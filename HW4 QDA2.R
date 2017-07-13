@@ -63,9 +63,11 @@ qda2 = function( XTrain, yTrain, XTest, yTest){
   }
   
   yHatTrain = apply( QDATrain, 1, which.max )
-  errRateTrain = sum( yHatTrain != yTrain )/N
+  errRateTrain = sum( yHatTrain != yTrain )/dim(XTrain)[1]
+  yhatTest=apply(QDATest,1,which.max)
+  errratetest=sum(yhatTest!=yTest)/N
+  return(list(errRateTrain,errratetest))
   
-
 }
 
 
